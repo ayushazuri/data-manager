@@ -1,11 +1,16 @@
-import './App.css';
-
+import "./App.scss";
+import { useSelector } from "react-redux";
+import Main from "./container/Main";
 function App() {
-  return (
-    <div className="App">
-      Hello
-    </div>
-  );
+	const theme = useSelector((state) => state.changeTheme);
+	return (
+		<div
+			className="App"
+			style={{ backgroundColor: theme.body, color: theme.text }}
+		>
+			<Main />
+		</div>
+	);
 }
 
 export default App;
