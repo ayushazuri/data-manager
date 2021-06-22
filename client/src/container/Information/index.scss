@@ -1,0 +1,20 @@
+.information {
+	text-align: center;
+
+	&__cards {
+		margin-top: 30px;
+		display: inline-grid;
+		grid-template-columns: auto auto auto;
+		@media (max-width: 800px) {
+			grid-template-columns: auto auto;
+		}
+		@media (max-width: 470px) {
+			grid-template-columns: auto;
+		}
+		justify-content: stretch;
+		align-items: center;
+		@media (min-width: 1000px) {
+			width: 65%;
+		}
+	}
+}

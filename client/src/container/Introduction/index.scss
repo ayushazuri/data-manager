@@ -1,0 +1,48 @@
+@mixin flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.intro {
+	@include flex;
+	padding: 1em;
+	@media (max-width: 800px) {
+		flex-wrap: wrap-reverse;
+		flex-direction: column;
+	}
+	&__left {
+		flex: 0.4;
+		@include flex;
+		align-items: flex-start;
+		flex-direction: column;
+		padding: 2em;
+		padding-left: 4em;
+
+		line-height: 1.5;
+		h1 {
+			font-size: 3em;
+		}
+		p {
+			font-size: 1.3em;
+		}
+		@media (max-width: 1000px) {
+			align-items: center;
+			padding: 2em;
+			h1 {
+				font-size: 2em;
+			}
+			p {
+				font-size: 1em;
+			}
+		}
+	}
+	&__right {
+		flex: 0.6;
+		@include flex;
+		& > * {
+			max-width: 90%;
+			height: auto;
+		}
+	}
+}

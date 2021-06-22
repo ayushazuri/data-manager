@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 
 const Main = () => {
 	return (
-		<div>
+		<>
 			<Router>
 				<Switch>
 					<Route exact path="/home">
@@ -15,7 +15,7 @@ const Main = () => {
 					</Route>
 				</Switch>
 			</Router>
-		</div>
+		</>
 	);
 };
 
