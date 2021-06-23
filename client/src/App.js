@@ -1,6 +1,7 @@
 import "./App.scss";
-import { useSelector } from "react-redux";
+
 import Main from "./container/Main";
+import { useSelector } from "react-redux";
 function App() {
 	const theme = useSelector((state) => state.changeTheme);
 	return (

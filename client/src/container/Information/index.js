@@ -1,16 +1,17 @@
-import React from "react";
 import "./index.scss";
+
 import InfoCards from "../../components/InfoCards";
+import React from "react";
 
 const Information = () => {
 	const sections = [
-		"About Me",
-		"Projects",
-		"Experience",
-		"Skills",
-		"Education",
-		"Certificates",
-		"Achievements",
+		{ name: "About Me", link: "/aboutme" },
+		{ name: "Projects", link: "/project" },
+		{ name: "Experience", link: "/experience" },
+		{ name: "Skills", link: "/skill" },
+		{ name: "Education", link: "/education" },
+		{ name: "Certificates", link: "/certification" },
+		{ name: "Achievements", link: "/achievement" },
 	];
 	return (
 		<div className="information">

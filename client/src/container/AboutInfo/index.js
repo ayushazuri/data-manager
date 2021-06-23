@@ -9,6 +9,7 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import TextField from "@material-ui/core/TextField";
 import { useSelector } from "react-redux";
+import { withStyles } from "@material-ui/core/styles";
 
 const AboutInfo = () => {
 	const theme = useSelector((state) => state.changeTheme);
@@ -32,11 +33,45 @@ const AboutInfo = () => {
 		profilePhoto: "",
 	});
 
+	const CustomTextField = withStyles({
+		root: {
+			"& label.Mui-focused": {
+				color: theme.text,
+			},
+			"& .MuiInput-underline:after": {
+				borderBottomColor: theme.text,
+			},
+			"& .MuiOutlinedInput-root": {
+				"&.Mui-focused fieldset": {
+					borderColor: "green",
+				},
+			},
+			"& .MuiInputBase-input": {
+				color: theme.text,
+			},
+		},
+	})(TextField);
+	const CustomButton = withStyles({
+		root: {
+			textTransform: "none",
+			backgroundColor: theme.text,
+			"&:hover": {
+				backgroundColor: theme.text,
+				borderColor: theme.text,
+			},
+			"&:active": {
+				backgroundColor: theme.jacketColor,
+				borderColor: theme.jacketColor,
+			},
+		},
+	})(Button);
+
 	const handleChange = (e) => {
 		const name = e.target.name;
 		const value = e.target.value;
 		setData({ ...data, [name]: value });
 		console.log(name, value);
+		console.log(data.profilePhoto);
 	};
 
 	const handleSaveButton = () => {
@@ -51,42 +86,56 @@ const AboutInfo = () => {
 				autoComplete="off"
 				style={{ color: theme.text }}
 			>
-				<TextField
+				{/* <input
+					accept="image/*"
+					id="contained-button-file"
+					multiple
+					type="file"
+					name="profilePhoto"
+					value={data.profilePhoto}
+					onChange={handleChange}
+				/>
+				<label htmlFor="contained-button-file">
+					<Button variant="contained" color="primary" component="span">
+						Upload
+					</Button>
+				</label> */}
+				<CustomTextField
 					name="name"
 					label="Name"
 					value={data.name}
 					variant="outlined"
 					onChange={(e) => handleChange(e)}
 				/>
-				<TextField
+				<CustomTextField
 					name="email"
 					label="Email"
 					value={data.email}
 					variant="outlined"
 					onChange={(e) => handleChange(e)}
 				/>
-				<TextField
+				<CustomTextField
 					name="phone"
 					label="Phone Number"
 					value={data.phone}
 					variant="outlined"
 					onChange={(e) => handleChange(e)}
 				/>
-				<TextField
+				<CustomTextField
 					name="address"
 					label="Address"
 					value={data.address}
 					variant="outlined"
 					onChange={(e) => handleChange(e)}
 				/>
-				<TextField
+				<CustomTextField
 					name="resumeLink"
 					label="Resume Link"
 					value={data.resumeLink}
 					variant="outlined"
 					onChange={(e) => handleChange(e)}
 				/>
-				<TextField
+				<CustomTextField
 					name="subTitle"
 					label="Description"
 					value={data.subTitle}
@@ -94,14 +143,14 @@ const AboutInfo = () => {
 					onChange={(e) => handleChange(e)}
 					multiline
 				/>
-				<TextField
+				<CustomTextField
 					name="linkedin"
 					label="Linkedin Link"
 					value={data.linkedin}
 					variant="outlined"
 					onChange={(e) => handleChange(e)}
 				/>
-				<TextField
+				<CustomTextField
 					name="githubLink"
 					label="Github Link"
 					value={data.githubLink}
@@ -110,7 +159,7 @@ const AboutInfo = () => {
 				/>
 
 				{view && (
-					<TextField
+					<CustomTextField
 						name="portfolio_repository"
 						label="Portfolio Repository Link"
 						value={data.portfolio_repository}
@@ -119,7 +168,7 @@ const AboutInfo = () => {
 					/>
 				)}
 				{view && (
-					<TextField
+					<CustomTextField
 						name="message"
 						label="Message"
 						value={data.message}
@@ -135,14 +184,26 @@ const AboutInfo = () => {
 						onChange={handleChange}
 						class="about__radio"
 					>
-						<FormLabel component="legend">Open For Opportunity</FormLabel>
-						<FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-						<FormControlLabel value="No" control={<Radio />} label="No" />
+						<FormLabel component="legend" style={{ color: theme.text }}>
+							Open For Opportunity
+						</FormLabel>
+						<FormControlLabel
+							value="Yes"
+							control={<Radio />}
+							label="Yes"
+							style={{ color: theme.text }}
+						/>
+						<FormControlLabel
+							value="No"
+							control={<Radio />}
+							label="No"
+							style={{ color: theme.text }}
+						/>
 					</RadioGroup>
 				)}
 
 				<div className="about__buttons">
-					<Button
+					<CustomButton
 						variant="contained"
 						size="large"
 						color="primary"
@@ -150,8 +211,8 @@ const AboutInfo = () => {
 						onClick={() => setView(!view)}
 					>
 						View More
-					</Button>
-					<Button
+					</CustomButton>
+					<CustomButton
 						variant="contained"
 						size="large"
 						color="primary"
@@ -159,7 +220,7 @@ const AboutInfo = () => {
 						onClick={() => handleSaveButton}
 					>
 						Save Changes
-					</Button>
+					</CustomButton>
 				</div>
 			</form>
 		</div>
