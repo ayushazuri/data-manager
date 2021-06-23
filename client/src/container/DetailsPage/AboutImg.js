@@ -41,7 +41,6 @@ const AboutImg = () => {
 					y2="483.16"
 				/>
 			</defs>
-			<title>about me</title>
 			<ellipse
 				cx="560.76"
 				cy="725.03"

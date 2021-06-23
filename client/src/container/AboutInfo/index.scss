@@ -1,0 +1,33 @@
+.about {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	&__form {
+		padding: 5px;
+		// border: 1px solid;
+		width: 70%;
+		& > * {
+			width: 100%;
+			margin: 5px !important;
+			background-color: white;
+		}
+	}
+	&__radio {
+		padding: 5px;
+		border: 1px solid #ccc7c71f !important;
+	}
+
+	&__buttons {
+		background-color: inherit;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.buttons {
+			margin: 5px;
+			margin-right: 10px;
+		}
+	}
+}

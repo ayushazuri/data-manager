@@ -5,11 +5,11 @@ const aboutMe = {
 	address: "Maple Leaf, Raheja Vihar, Powai, Mumbai, 400072.",
 	resumeLink:
 		"https://drive.google.com/file/d/1bYDCMPMB4hCKcbRuVN68vyAwplwqU1n0/view?usp=sharing",
-	openForOpportunity: "Yes",
-	message: "My inbox is open for all. Feel free to reach out to me any time. ",
+	openForOpportunity: "Yes", //
+	message: "My inbox is open for all. Feel free to reach out to me any time. ", //
 	subTitle:
 		"A Passionate Software Developer having an experience of building web applications using various technologies along with good programming and Problem-Solving Skills. Interested to learn new technologies with a receptive mind and diligence.",
-	portfolio_repository: "https://github.com/ayushazuri/Portfolio-Website",
+	portfolio_repository: "https://github.com/ayushazuri/Portfolio-Website", //
 	linkedin: "https://www.linkedin.com/in/ayush-singh1998/",
 	githubLink: "https://github.com/ayushazuri",
 	profilePhoto: require("./assets/Images/profile.jpeg").default,
