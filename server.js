@@ -10,6 +10,7 @@ const socialLinks = require("./routes/socialLinks");
 const experience = require("./routes/experience");
 const projects = require("./routes/projects");
 const skills = require("./routes/skills");
+var cors = require("cors");
 
 var morgan = require("morgan");
 
@@ -19,6 +20,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(cors());
+
 app.use("/api/v1/aboutMe", aboutMe);
 app.use("/api/v1/competitiveLink", competitiveLinks);
 app.use("/api/v1/education", education);

@@ -13,25 +13,12 @@ import { withStyles } from "@material-ui/core/styles";
 
 const AboutInfo = () => {
 	const theme = useSelector((state) => state.changeTheme);
+	const aboutMeData = useSelector((state) => state.aboutMe);
+	console.log(aboutMeData);
 	const [view, setView] = useState(false);
 
-	const [data, setData] = useState({
-		name: "Ayush Singh",
-		email: "ayushazuri@gmail.com",
-		phone: "+91 9892770647",
-		address: "Maple Leaf, Raheja Vihar, Powai, Mumbai, 400072.",
-		resumeLink:
-			"https://drive.google.com/file/d/1bYDCMPMB4hCKcbRuVN68vyAwplwqU1n0/view?usp=sharing",
-		openForOpportunity: "Yes", //
-		message:
-			"My inbox is open for all. Feel free to reach out to me any time. ", //
-		subTitle:
-			"A Passionate Software Developer having an experience of building web applications using various technologies along with good programming and Problem-Solving Skills. Interested to learn new technologies with a receptive mind and diligence.",
-		portfolio_repository: "https://github.com/ayushazuri/Portfolio-Website", //
-		linkedin: "https://www.linkedin.com/in/ayush-singh1998/",
-		githubLink: "https://github.com/ayushazuri",
-		profilePhoto: "",
-	});
+	const [data, setData] = useState(aboutMeData);
+	console.log(data);
 
 	const CustomTextField = withStyles({
 		root: {
