@@ -1,6 +1,6 @@
 import "./index.scss";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from "@material-ui/core/Button";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -14,11 +14,13 @@ import { withStyles } from "@material-ui/core/styles";
 const AboutInfo = () => {
 	const theme = useSelector((state) => state.changeTheme);
 	const aboutMeData = useSelector((state) => state.aboutMe);
-	console.log(aboutMeData);
-	const [view, setView] = useState(false);
 
-	const [data, setData] = useState(aboutMeData);
-	console.log(data);
+	const [view, setView] = useState(false);
+	const [data, setData] = useState({});
+
+	useEffect(() => {
+		setData(aboutMeData);
+	}, [aboutMeData]);
 
 	const CustomTextField = withStyles({
 		root: {
@@ -38,6 +40,7 @@ const AboutInfo = () => {
 			},
 		},
 	})(TextField);
+
 	const CustomButton = withStyles({
 		root: {
 			textTransform: "none",
