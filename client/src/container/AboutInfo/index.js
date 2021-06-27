@@ -14,12 +14,14 @@ import { withStyles } from "@material-ui/core/styles";
 const AboutInfo = () => {
 	const theme = useSelector((state) => state.changeTheme);
 	const aboutMeData = useSelector((state) => state.aboutMe);
-
+	console.log("1");
 	const [view, setView] = useState(false);
 	const [data, setData] = useState({});
+	console.log(aboutMeData);
 
 	useEffect(() => {
 		setData(aboutMeData);
+		console.log("object");
 	}, [aboutMeData]);
 
 	const CustomTextField = withStyles({
@@ -70,12 +72,7 @@ const AboutInfo = () => {
 
 	return (
 		<div className="about">
-			<form
-				noValidate
-				className="about__form"
-				autoComplete="off"
-				style={{ color: theme.text }}
-			>
+			<form noValidate className="about__form" style={{ color: theme.text }}>
 				{/* <input
 					accept="image/*"
 					id="contained-button-file"

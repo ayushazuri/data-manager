@@ -28,7 +28,7 @@ function App() {
 			.then((req) => dispatch(dataAction("EXPERIENCE", req.data)));
 		axios
 			.get("/achievement")
-			.then((req) => dispatch(dataAction("ACHIEVEMENT", req.data)));
+			.then((req) => dispatch(dataAction("ACHIEVEMENT", req.data.achievement)));
 	}, [dispatch]);
 	const theme = useSelector((state) => state.changeTheme);
 	return (

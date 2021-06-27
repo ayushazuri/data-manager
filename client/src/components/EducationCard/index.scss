@@ -1,0 +1,18 @@
+.education-cards {
+	min-width: 300px;
+	flex: 1 0 200px;
+	margin: 10px;
+
+	cursor: pointer;
+	.education-cards-area {
+		line-height: 2;
+		padding: 10px;
+	}
+	@media (max-width: 900px) {
+		line-height: 1.5;
+	}
+	div {
+		display: flex;
+		justify-content: space-between;
+	}
+}
