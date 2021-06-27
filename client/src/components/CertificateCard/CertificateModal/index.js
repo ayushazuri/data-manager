@@ -5,19 +5,21 @@ import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
 import { CSSTransition } from "react-transition-group";
 import TextField from "@material-ui/core/TextField";
-import axios from "../../axios";
+import axios from "../../../axios";
 import { useDispatch } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 
-const EducationModal = ({
-	addEducation,
+// import axios from "../../axios";
+
+const CertificateModal = ({
 	theme,
 	show,
 	onClose,
-	education = {},
+	certificate = {},
 	length,
+	addCertficate,
 }) => {
-	const [data, setData] = useState(education);
+	const [data, setData] = useState(certificate);
 
 	const closeOnEscapeKeyDown = (e) => {
 		if ((e.charCode || e.keyCode) === 27) onClose();
@@ -39,11 +41,10 @@ const EducationModal = ({
 	const handleSaveChanges = () => {
 		console.log(data);
 		onClose();
-		if (addEducation) {
-			axios.post("/education", { ...data, id: length + 1 });
+		if (addCertficate) {
+			axios.post("/certification", { ...data, id: length + 1 });
 		}
 	};
-
 	const CustomTextField = withStyles({
 		root: {
 			"& label.Mui-focused": {
@@ -76,7 +77,6 @@ const EducationModal = ({
 			},
 		},
 	})(Button);
-
 	return (
 		<CSSTransition in={show} unmountOnExit timeout={{ enter: 100, exit: 300 }}>
 			<div className={`modal ${show ? "modal__show" : ""}`} onClick={onClose}>
@@ -92,7 +92,7 @@ const EducationModal = ({
 						className="modal__header"
 						style={{ backgroundColor: theme.headerColor }}
 					>
-						<p>Education {data.id}</p>
+						<p>Certficate {data.id}</p>
 					</div>
 					<div className="modal__body">
 						<form
@@ -109,34 +109,26 @@ const EducationModal = ({
 								onChange={(e) => handleChange(e)}
 							/>
 							<CustomTextField
-								name="branch"
-								label="Branch"
-								value={data.branch}
+								name="link"
+								label="Link"
+								value={data.link}
 								variant="outlined"
 								size="small"
 								onChange={(e) => handleChange(e)}
 								// multiline
 							/>
 							<CustomTextField
-								name="location"
-								label="Location"
-								value={data.location}
+								name="author"
+								label="Author"
+								value={data.author}
 								variant="outlined"
 								size="small"
 								onChange={(e) => handleChange(e)}
 							/>
 							<CustomTextField
-								name="timelime"
-								label="Timeline"
-								value={data.timeline}
-								variant="outlined"
-								size="small"
-								onChange={(e) => handleChange(e)}
-							/>
-							<CustomTextField
-								name="pointer"
-								label="Pointer/Percentage"
-								value={data.pointer}
+								name="source"
+								label="Source"
+								value={data.source}
 								variant="outlined"
 								size="small"
 								onChange={(e) => handleChange(e)}
@@ -160,4 +152,4 @@ const EducationModal = ({
 	);
 };
 
-export default EducationModal;
+export default CertificateModal;

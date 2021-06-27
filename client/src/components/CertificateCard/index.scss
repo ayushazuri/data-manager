@@ -1,0 +1,9 @@
+.certification-card {
+	flex: 1 0 200px;
+	margin: 10px;
+	text-align: center;
+	&__area {
+		line-height: 1.5;
+		padding: 10px !important;
+	}
+}

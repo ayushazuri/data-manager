@@ -4,25 +4,26 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "@material-ui/core/Button";
-import EducationCard from "../../components/EducationCard";
-import EducationModal from "../../components/EducationModal";
+import CertificateCard from "../../components/CertificateCard";
+import CertificateModal from "../../components/CertificateCard/CertificateModal";
 import axios from "../../axios";
 import dataAction from "../../redux/action/dataAction";
 import { withStyles } from "@material-ui/core/styles";
 
-const EducationInfo = () => {
+const CertificationInfo = () => {
 	const dispatch = useDispatch();
 	const [data, setData] = useState([]);
 	const theme = useSelector((state) => state.changeTheme);
 	const [show, setShow] = useState(false);
-	const addEducation = true;
+	const addCertificate = true;
 
 	useEffect(() => {
-		axios.get("/education").then((req) => {
+		axios.get("/certification").then((req) => {
 			setData(req.data);
-			dispatch(dataAction("EDUCATION", req.data));
+			dispatch(dataAction("CERTIFICATION", req.data));
 		});
 	}, [dispatch]);
+
 	const CustomButton = withStyles({
 		root: {
 			textTransform: "none",
@@ -39,9 +40,9 @@ const EducationInfo = () => {
 	})(Button);
 
 	return (
-		<div className="education">
-			{data.map((education) => {
-				return <EducationCard key={education.id} education={education} />;
+		<div className="certificate">
+			{data.map((certificate) => {
+				return <CertificateCard certificate={certificate} />;
 			})}
 			<div className="buttons">
 				<CustomButton
@@ -51,13 +52,13 @@ const EducationInfo = () => {
 					className="buttons"
 					onClick={() => setShow(true)}
 				>
-					Add
+					Add a Certificate
 				</CustomButton>
 			</div>
 			{show && (
-				<EducationModal
+				<CertificateModal
 					theme={theme}
-					addEducation={addEducation}
+					addCertficate={addCertificate}
 					show={show}
 					length={data.length}
 					onClose={() => setShow(false)}
@@ -67,4 +68,4 @@ const EducationInfo = () => {
 	);
 };
 
-export default EducationInfo;
+export default CertificationInfo;
